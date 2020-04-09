@@ -60,13 +60,15 @@ for col in cc_apps:
 cc_apps = cc_apps.drop([cc_apps.columns[11], cc_apps.columns[13]], axis=1)
 cc_apps = cc_apps.values
 X, y = cc_apps[:, 0:13], cc_apps[:, 13]
-X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+# kept getting a error, but I think I found the problem
+# In the code above I wrote X_train, y_train, X_test, y_test, but that is wrong and splits the data wrong
+# Changed it to X_train, X_test, y_train, y_test, and now I don't get any errors
 
 # Task 8
 scaler = MinMaxScaler(feature_range=(0, 1))
 rescaledX_train = scaler.fit_transform(X_train)
 rescaledX_test = scaler.fit_transform(X_test)
-# Getting error I don't know how to fix
 
 # Task 9
 logreg = LogisticRegression()
