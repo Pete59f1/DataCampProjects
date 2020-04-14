@@ -8,7 +8,7 @@ from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import GridSearchCV
 
 # Task 1
-data = pd.read_csv("CreditCardApprovals.data", header=None)
+data = pd.read_csv("cc_approvals.data", header=None)
 cc_apps = pd.DataFrame(data)
 print(cc_apps.head(5))
 print("\n")
